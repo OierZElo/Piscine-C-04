@@ -6,7 +6,7 @@
 /*   By: ozugazag <ozugazag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:47:44 by ozugazag          #+#    #+#             */
-/*   Updated: 2025/07/22 14:54:39 by ozugazag         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:09:45 by ozugazag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_putnbr_base(int nbr, char *base)
 // 	ft_putnbr_base(42, "01");
 // 	ft_putchar('\n');
 // 	ft_putstr("Hexadecimal (base 16): ");
-// 	ft_putnbr_base(255, "0123456789ABCDEF");
+// 	ft_putnbr_base(256, "0123456789ABCDEF");
 // 	ft_putchar('\n');
 // 	ft_putstr("Base poniguay (base 8): ");
 // 	ft_putnbr_base(64, "poniguay");

@@ -6,7 +6,7 @@
 /*   By: ozugazag <ozugazag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 14:55:48 by ozugazag          #+#    #+#             */
-/*   Updated: 2025/07/22 12:45:54 by ozugazag         ###   ########.fr       */
+/*   Updated: 2025/07/23 12:09:35 by ozugazag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	ft_atoi(char *str)
 
 	result = 0;
 	sign = 1;
-	while (*str == ' ' || *str == '+' || *str == '-')
+	while ((*str == ' ') || (*str == '+') || (*str == '-') || ((*str >= 9)
+			&& (*str <= 13)))
 	{
 		str++;
 	}
