@@ -6,25 +6,11 @@
 /*   By: ozugazag <ozugazag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 14:55:48 by ozugazag          #+#    #+#             */
-/*   Updated: 2025/07/23 12:09:35 by ozugazag         ###   ########.fr       */
+/*   Updated: 2025/07/25 12:50:29 by ozugazag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-int	is_negative(char *str)
-{
-	int	neg;
-
-	neg = 0;
-	while ((*str == '-') || (*str == '+') || (*str == ' '))
-	{
-		if (*str == '-')
-			neg++;
-		str++;
-	}
-	return ((neg % 2) != 0);
-}
 
 int	ft_atoi(char *str)
 {
@@ -33,13 +19,14 @@ int	ft_atoi(char *str)
 
 	result = 0;
 	sign = 1;
-	while ((*str == ' ') || (*str == '+') || (*str == '-') || ((*str >= 9)
-			&& (*str <= 13)))
+	while ((*str >= 9 && *str <= 13) || (*str == ' '))
+		str++;
+	while (*str == '+' || *str == '-')
 	{
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
-	if (is_negative(str - 1))
-		sign = -1;
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + (*str - '0');

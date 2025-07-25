@@ -6,7 +6,7 @@
 /*   By: ozugazag <ozugazag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:55:35 by ozugazag          #+#    #+#             */
-/*   Updated: 2025/07/23 12:10:40 by ozugazag         ###   ########.fr       */
+/*   Updated: 2025/07/25 12:50:35 by ozugazag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,6 @@ int	check_base(char *base)
 	return (0);
 }
 
-int	is_negative(char *str)
-{
-	int	neg;
-
-	neg = 0;
-	while ((*str == '-') || (*str == '+') || (*str == ' '))
-	{
-		if (*str == '-')
-			neg++;
-		str++;
-	}
-	return ((neg % 2) != 0);
-}
-
 int	ft_strlen(char *str)
 {
 	int	len;
@@ -82,18 +68,25 @@ int	ft_atoi_base(char *str, char *base)
 {
 	int	result;
 	int	sign;
+	int	base_len;
+	int	index;
 
 	result = 0;
 	sign = 1;
-	if (is_negative(str))
-		sign = -1;
 	if (check_base(base))
 		return (0);
-	while (*str == ' ' || *str == '+' || *str == '-')
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
-	while (i_base(*str, base) != -1)
+	while (*str == '+' || *str == '-')
 	{
-		result = (result * ft_strlen(base)) + i_base(*str, base);
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	base_len = ft_strlen(base);
+	while ((index = i_base(*str, base)) != -1)
+	{
+		result = result * base_len + index;
 		str++;
 	}
 	return (result * sign);
