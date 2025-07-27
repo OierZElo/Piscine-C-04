@@ -6,7 +6,7 @@
 /*   By: ozugazag <ozugazag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:55:35 by ozugazag          #+#    #+#             */
-/*   Updated: 2025/07/25 12:50:35 by ozugazag         ###   ########.fr       */
+/*   Updated: 2025/07/27 11:26:29 by ozugazag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,11 @@ int	ft_atoi_base(char *str, char *base)
 		str++;
 	}
 	base_len = ft_strlen(base);
-	while ((index = i_base(*str, base)) != -1)
+	index = i_base(*str, base);
+	while (index != -1)
 	{
 		result = result * base_len + index;
-		str++;
+		index = i_base(*(++str), base);
 	}
 	return (result * sign);
 }
